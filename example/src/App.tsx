@@ -1,36 +1,22 @@
-import Icon from "react-native-vector-icons/Entypo";
 import {
   StyleSheet,
   Text,
   View,
   Switch,
-  Image,
-  RefreshControl,
   Platform,
   StatusBar,
   useColorScheme,
 } from "react-native";
+import * as React from "react";
 // import {
 //   SettingsScreen,
 //   SettingsData,
 //   Chevron,
 // } from "react-native-settings-screen";
-import { createSettingsDataFactory } from "./src";
+import { createSettingsDataFactory } from "../../src";
 import Colors from "./Colors";
 
-const renderHero = () => (
-  <View style={styles.heroContainer}>
-    <Image
-      source={require("./assets/adaptive-icon.png")}
-      style={styles.heroImage}
-    />
-    <View style={{ flex: 1 }}>
-      <Text style={styles.heroTitle}>Jan Söndermann</Text>
-      <Text style={styles.heroSubtitle}>jan+git@primlo.com</Text>
-    </View>
-    {/* <Chevron /> */}
-  </View>
-);
+
 const fontFamily = Platform.OS === "ios" ? "Avenir" : "sans-serif";
 export function useThemeColor(
   colorName: keyof typeof Colors.light & keyof typeof Colors.dark
