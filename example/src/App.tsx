@@ -13,7 +13,7 @@ import * as React from "react";
 //   SettingsData,
 //   Chevron,
 // } from "react-native-settings-screen";
-import { createSettingsDataFactory } from "../../src";
+import { createSettingsDataFactory } from "react-native-settings-template";
 import Colors from "./Colors";
 
 
@@ -31,7 +31,6 @@ export default function App() {
   const SettingsData = createSettingsDataFactory();
   const SectionData = SettingsData.createSectionFactory();
   const SectionData1 = SettingsData.createSectionFactory({
-    type: "SECTION",
     header: "My Section".toUpperCase(),
     footer:
       "Donec sed odio dui. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
@@ -93,14 +92,12 @@ export default function App() {
             isFirst={true}
             showDisclosureIndicator={true}
             viewStyle={{ backgroundColor }}
-            titleStyles={{ color }}
+            titleStyles={{ color: 'red' }}
           />
           <SectionData.Row
             title="row title2"
             isFirst={false}
             showDisclosureIndicator={true}
-            viewStyle={{ backgroundColor }}
-            titleStyles={{ color }}
           />
           <SectionData.Row
             title="row title3"

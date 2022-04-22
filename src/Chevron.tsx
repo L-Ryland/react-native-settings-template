@@ -1,9 +1,10 @@
+import * as React from "react";
 import { Image, StyleSheet } from "react-native";
 
 export const Chevron = (): JSX.Element => {
   return (
     <Image
-      source={require("../assets/chevron3.png")}
+      source={require("./assets/chevron3.png")}
       style={defaultStyles.chevron}
     />
   );

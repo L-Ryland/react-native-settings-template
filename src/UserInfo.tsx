@@ -1,15 +1,12 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import {
   View,
   Image,
-  Text,
   StyleSheet,
   Platform,
   ImageProps,
-  ViewStyle,
-  TextStyle,
+  TouchableOpacity,
 } from "react-native";
-import { useQuery } from "react-query";
 import styled from "styled-components/native";
 import { Chevron } from ".";
 import { Theme } from "./SettingsScreen";
@@ -20,17 +17,19 @@ export type UserInfoProps = {
   title: string;
   subTitle: string;
   showDisclosureIndicator?: boolean;
+  onPress?: TouchableOpacity['props']['onPress'];
 };
 export const UserInfo: React.FC<UserInfoProps> = ({
   source,
   title,
   subTitle,
   showDisclosureIndicator = false,
+  onPress,
 }) => {
   // const { source, title, subTitle} = props;
   const {viewStyle, textStyle} = useContext(Theme);
   return (
-    <UserContainer style={viewStyle}>
+    <UserContainer style={viewStyle} onPress={onPress}>
       <Image source={source} style={styles.userImage} />
       <View style={{flex: 1}}>
         <UserTitle style={textStyle} children={title} />
@@ -40,7 +39,7 @@ export const UserInfo: React.FC<UserInfoProps> = ({
     </UserContainer>
   );
 };
-const UserContainer = styled.View`
+const UserContainer = styled.TouchableOpacity`
   margin-top: 40;
   margin-bottom: 50;
   padding-vertical: 20;

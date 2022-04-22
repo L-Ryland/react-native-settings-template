@@ -14,12 +14,12 @@ import { Theme } from "./SettingsScreen";
   title: string;
   subtitle?: string;
   onPress?: TouchableOpacityProps["onPress"];
-  showDisclosureIndicator: boolean;
+  showDisclosureIndicator?: boolean;
   renderAccessory?: () => JSX.Element;
   viewStyle?: ViewStyle;
   titleStyles?: TextStyle;
   subtitleStyles?: TextStyle;
-  isFirst: boolean;
+  isFirst?: boolean;
   isLast?: boolean;
   height?: ViewStyle["height"];
 };
@@ -27,7 +27,7 @@ export const Row = ({
   title,
   subtitle,
   onPress,
-  showDisclosureIndicator,
+  showDisclosureIndicator = false,
   renderAccessory,
   titleStyles,
   subtitleStyles,
@@ -38,12 +38,12 @@ export const Row = ({
   const {viewStyle, textStyle} = useContext(Theme)
   return (
     <Container height={height ? height : subtitle ? 56 : 46}>
-        <TopBorderContainer isFirst={isFirst}>
+        <TopBorderContainer isFirst={isFirst??true}>
           <TopBorder />
         </TopBorderContainer>
       <ContentContainer onPress={onPress} style={viewStyle}>
         <TitlesContainer>
-          <Title numberOfLines={1} style={[titleStyles, textStyle]}>{title}</Title>
+          <Title numberOfLines={1} style={[textStyle, titleStyles]}>{title}</Title>
           {subtitle && <Subtitle numberOfLines={1} style={subtitleStyles}>{subtitle}</Subtitle>}
         </TitlesContainer>
         {renderAccessory && renderAccessory()}
@@ -53,15 +53,7 @@ export const Row = ({
     </Container>
   );
 };
-const styles = StyleSheet.create({
-  contentContainer: {
-    flexDirection: "row",
-    paddingLeft: 15,
-    flex: 1,
-    alignItems: "center",
-    backgroundColor: "white",
-  },
-});
+
 const Container = styled.View`
   background-color: transparent;
   height: ${({height}: { height: ViewStyle['height']}) => height};

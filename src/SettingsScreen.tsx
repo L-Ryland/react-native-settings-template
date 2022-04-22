@@ -4,7 +4,7 @@ import styled from "styled-components/native";
 import { UserInfo, CustomView } from ".";
 import { createSectionFactory } from "./Section";
 
-export function createSettingsDataFactory<T>() {
+export function createSettingsDataFactory() {
   return {
     SettingsScreen,
     createSectionFactory,
