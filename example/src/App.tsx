@@ -13,7 +13,7 @@ import * as React from "react";
 //   SettingsData,
 //   Chevron,
 // } from "react-native-settings-screen";
-import { createSettingsDataFactory } from "react-native-settings-template";
+import { createSettingsDataFactory } from "../../src"
 import Colors from "./Colors";
 
 

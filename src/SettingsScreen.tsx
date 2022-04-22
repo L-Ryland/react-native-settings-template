@@ -1,10 +1,16 @@
 import React from "react";
 import type { TextStyle, ViewStyle } from "react-native";
 import styled from "styled-components/native";
-import { UserInfo, CustomView } from ".";
+import { UserInfo, CustomView, UserInfoProps } from ".";
 import { createSectionFactory } from "./Section";
 
-export function createSettingsDataFactory() {
+type SettingsDataFactory = {
+  SettingsScreen: React.FC<SettingsScreenProps>;
+  createSectionFactory?: typeof createSectionFactory,
+  UserInfo?: React.FC<UserInfoProps>,
+  CustomView?: React.FC<any>
+}
+export function createSettingsDataFactory(): SettingsDataFactory {
   return {
     SettingsScreen,
     createSectionFactory,
@@ -12,7 +18,7 @@ export function createSettingsDataFactory() {
     CustomView,
   };
 }
-const initiatedTheme: {viewStyle: ViewStyle, textStyle: TextStyle} = {
+const initiatedTheme: { viewStyle: ViewStyle, textStyle: TextStyle } = {
   viewStyle: {
     backgroundColor: '#eee'
   }, textStyle: {
@@ -21,14 +27,16 @@ const initiatedTheme: {viewStyle: ViewStyle, textStyle: TextStyle} = {
 }
 export const Theme = React.createContext(initiatedTheme);
 type SettingsScreenProps = {
-  textStyle: TextStyle,
-  viewStyle: ViewStyle,
+  textStyle: TextStyle;
+  viewStyle: ViewStyle;
   [key: string]: any
 }
 const SettingsScreen = ({ textStyle, viewStyle, ...otherProps }: SettingsScreenProps) => {
+  console.log('[SettingsScreen Component] [otherProps]', otherProps);
+
   return (
     <Theme.Provider value={{ viewStyle, textStyle }}>
-      <SettingsScrollView {...otherProps} />;
+      <SettingsScrollView {...otherProps} />
     </Theme.Provider>
   );
 };
