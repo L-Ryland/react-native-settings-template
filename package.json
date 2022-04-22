@@ -1,6 +1,6 @@
 {
   "name": "react-native-settings-template",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "a settings template using react-native",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
