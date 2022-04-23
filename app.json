@@ -1,0 +1,9 @@
+{
+  "expo": {
+    "slug": "react-native-settings-template",
+    "name": "react-native-settings-template",
+    "sdkVersion": "42.0.0",
+    "entryPoint": ".vscode/exponentIndex.js"
+  },
+  "name": "react-native-settings-template"
+}
