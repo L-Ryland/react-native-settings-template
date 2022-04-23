@@ -47,7 +47,7 @@ const UserContainer = styled.TouchableOpacity`
   align-items: center;
   border-top-width: ${StyleSheet.hairlineWidth};
   border-bottom-width: ${StyleSheet.hairlineWidth};
-  border-color: #ccc;
+  border-color: #767676;
   flex-direction: row;
 `;
 const UserTitle = styled.Text`

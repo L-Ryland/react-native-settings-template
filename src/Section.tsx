@@ -9,9 +9,9 @@ type SectionDataProps = {
   header?: string;
   rows: RowProps[];
   footer?: string | Function;
-};
+} | undefined;
 
-export function createSectionFactory(sectionData?: SectionDataProps) {
+export function createSectionFactory(sectionData: SectionDataProps = undefined) {
   if (sectionData) {
     const { header, footer, rows } = sectionData;
     const children = [

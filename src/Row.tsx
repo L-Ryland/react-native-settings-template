@@ -35,11 +35,11 @@ export const Row = ({
   isLast,
   height,
 }: RowProps) => {
-  const {viewStyle, textStyle} = useContext(Theme)
+  const {viewStyle, textStyle} = useContext(Theme);
   return (
     <Container height={height ? height : subtitle ? 56 : 46}>
         <TopBorderContainer isFirst={isFirst??true}>
-          <TopBorder />
+          <TopBorder style={{backgroundColor: viewStyle.borderColor}}/>
         </TopBorderContainer>
       <ContentContainer onPress={onPress} style={viewStyle}>
         <TitlesContainer>
@@ -49,7 +49,7 @@ export const Row = ({
         {renderAccessory && renderAccessory()}
         {showDisclosureIndicator ? <Chevron /> : <View style={{ width: 10 }} />}
       </ContentContainer>
-      {isLast && <BottomBorder />}
+      {isLast && <BottomBorder style={{backgroundColor: viewStyle.borderColor}}/>}
     </Container>
   );
 };
@@ -72,7 +72,7 @@ const TopBorderContainer = styled.View`
 `;
 const TopBorder = styled.View`
   flex: 1;
-  background-color: #ccc;
+  background-color: #767676;
 `;
 const TitlesContainer = styled.View`
   flex: 1;
@@ -92,5 +92,5 @@ const Subtitle = styled.Text`
 const BottomBorder = styled.View`
   align-self: stretch;
   height: ${StyleSheet.hairlineWidth};
-  background-color: #ccc;
+  background-color: #767676;
 `;

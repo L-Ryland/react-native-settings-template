@@ -1,3 +1,5 @@
+
+import React from "react";
 import {
   StyleSheet,
   Text,
@@ -7,12 +9,7 @@ import {
   StatusBar,
   useColorScheme,
 } from "react-native";
-import * as React from "react";
-// import {
-//   SettingsScreen,
-//   SettingsData,
-//   Chevron,
-// } from "react-native-settings-screen";
+
 import { createSettingsDataFactory } from "../../src"
 import Colors from "./Colors";
 
@@ -27,6 +24,7 @@ export function useThemeColor(
 export default function App() {
   const backgroundColor = useThemeColor("background");
   const tintBackground = useThemeColor("tintBackground");
+  const borderColor = useThemeColor('borderColor');
   const color = useThemeColor("text");
   const SettingsData = createSettingsDataFactory();
   const SectionData = SettingsData.createSectionFactory();
@@ -72,7 +70,7 @@ export default function App() {
       </View>
       {/* <SettingsScreen data={data} globalTextStyle={{ fontFamily }} /> */}
       <SettingsData.SettingsScreen
-        viewStyle={{ backgroundColor: tintBackground }}
+        viewStyle={{ backgroundColor: tintBackground, borderColor }}
         textStyle={{ color }}
       >
         <SettingsData.UserInfo

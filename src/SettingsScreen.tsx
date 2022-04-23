@@ -6,9 +6,9 @@ import { createSectionFactory } from "./Section";
 
 type SettingsDataFactory = {
   SettingsScreen: React.FC<SettingsScreenProps>;
-  createSectionFactory?: typeof createSectionFactory,
-  UserInfo?: React.FC<UserInfoProps>,
-  CustomView?: React.FC<any>
+  createSectionFactory: typeof createSectionFactory,
+  UserInfo: React.FC<UserInfoProps>,
+  CustomView: React.FC<any>
 }
 export function createSettingsDataFactory(): SettingsDataFactory {
   return {
