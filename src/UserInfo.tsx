@@ -35,7 +35,7 @@ export const UserInfo: React.FC<UserInfoProps> = ({
         <UserTitle style={textStyle} children={title} />
         <UserSubTitle style={textStyle} children={subTitle} />
       </View>
-      {showDisclosureIndicator && <Chevron />}
+      {showDisclosureIndicator && <Chevron/>}
     </UserContainer>
   );
 };
